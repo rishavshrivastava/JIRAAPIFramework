@@ -1,0 +1,6 @@
+jira\Base.class
+pojo\CreateIssueFields.class
+pojo\CreateIssueFieldsIssueTypes.class
+pojo\AccessCredentials.class
+pojo\CreateIssuePojo.class
+pojo\CreateIssueFieldsProjects.class
