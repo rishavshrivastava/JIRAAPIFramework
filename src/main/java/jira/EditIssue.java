@@ -4,7 +4,7 @@ import static io.restassured.RestAssured.given;
 
 public class EditIssue {
 
-	public void addDescription(String session, String issueid) {
+	public static void addDescription(String session, String issueid) {
 		given().header("Content-Type", "application/json").header("Cookie", session)
 		.body("{\r\n" + 
 				"  \"update\": {\r\n" + 
