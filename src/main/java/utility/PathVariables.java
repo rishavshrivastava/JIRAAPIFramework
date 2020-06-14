@@ -2,7 +2,7 @@ package utility;
 
 public interface PathVariables {
 
-	static final String SessionID = "data//SessionID.txt";
-	static final String IssueID = "data//IssueID.txt";
-	static final String CommentID = "data//CommentID.txt";
+	static final String BaseURI = "http://localhost:8080";
+	static final String excelPath = "data//APIInputs.xlsx";
+	static final String sheetname = "Sheet1";
 }

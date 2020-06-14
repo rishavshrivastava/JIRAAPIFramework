@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Base">
-              <span class="suite-name border-passed">Base</span>
+              <span class="suite-name border-failed">Base</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,26 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Base" class="hide-methods passed suite-Base"> (hide)</a> <!-- hide-methods passed suite-Base -->
-                      <a href="#" panel-name="suite-Base" class="show-methods passed suite-Base"> (show)</a> <!-- show-methods passed suite-Base -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Base" class="hide-methods failed suite-Base"> (hide)</a> <!-- hide-methods failed suite-Base -->
+                      <a href="#" panel-name="suite-Base" class="show-methods failed suite-Base"> (show)</a> <!-- show-methods failed suite-Base -->
                     </span>
-                    <div class="method-list-content passed suite-Base">
+                    <div class="method-list-content failed suite-Base">
                       <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Base" title="jira.TestJira" hash-for-method="createIssue">createIssue</a> <!-- method navigator-link -->
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Base" title="jira.TestJira" hash-for-method="createAndDeleteIssue">createAndDeleteIssue</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Base" title="jira.TestJira" hash-for-method="deleteIssue">deleteIssue</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content passed suite-Base -->
+                    </div> <!-- method-list-content failed suite-Base -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -122,28 +117,43 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Base" class="panel Base">
-          <div class="suite-Base-class-passed">
+          <div class="suite-Base-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
               <span class="class-name">jira.TestJira</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="createIssue">
-                  </a> <!-- createIssue -->
-                  <span class="method-name">createIssue</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="deleteIssue">
-                  </a> <!-- deleteIssue -->
-                  <span class="method-name">deleteIssue</span>
+                  <a name="createAndDeleteIssue">
+                  </a> <!-- createAndDeleteIssue -->
+                  <span class="method-name">createAndDeleteIssue</span>
+                  <div class="stack-trace">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;204&gt; but was &lt;401&gt;.
+
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:59)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:238)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:250)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:494)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
+	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:656)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:210)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:59)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:169)
+	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:125)
+	at io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)
+	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:133)
+	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:119)
+	at jira.DeleteIssue.deleteIssue(DeleteIssue.java:10)
+	at jira.TestJira.createAndDeleteIssue(TestJira.java:18)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+... Removed 37 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Base-class-passed -->
+          </div> <!-- suite-Base-class-failed -->
         </div> <!-- panel Base -->
         <div panel-name="test-xml-Base" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -196,20 +206,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'createIssue')
+data.setCell(0, 1, 'createAndDeleteIssue')
 data.setCell(0, 2, 'jira.TestJira')
-data.setCell(0, 3, 365);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'deleteIssue')
-data.setCell(1, 2, 'jira.TestJira')
-data.setCell(1, 3, 36);
+data.setCell(0, 3, 832);
 window.suiteTableData['Base']= { tableData: data, tableDiv: 'times-div-Base'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 401 ms</span>
+              <span class="suite-total-time">Total running time: 832 ms</span>
               <div id="times-div-Base">
               </div> <!-- times-div-Base -->
             </div> <!-- times-div -->
@@ -241,12 +247,10 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
-                <span class="method-name">createIssue</span>
-                <span class="method-start">1582 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">deleteIssue</span>
-                <span class="method-start">1952 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">createAndDeleteIssue</span>
+                <span class="method-start">4514 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -2,23 +2,23 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Base" duration-ms="1776" started-at="2020-06-14T09:16:14 IST" finished-at="2020-06-14T09:16:16 IST">
+  <suite name="Base" duration-ms="3535" started-at="2020-06-14T15:36:01 IST" finished-at="2020-06-14T15:36:04 IST">
     <groups>
     </groups>
-    <test name="Test" duration-ms="1776" started-at="2020-06-14T09:16:14 IST" finished-at="2020-06-14T09:16:16 IST">
+    <test name="Test" duration-ms="3535" started-at="2020-06-14T15:36:01 IST" finished-at="2020-06-14T15:36:04 IST">
       <class name="jira.TestJira">
-        <test-method status="PASS" signature="initializeURL()[pri:0, instance:jira.TestJira@6fc6f14e]" name="initializeURL" is-config="true" duration-ms="1274" started-at="2020-06-14T09:16:14 IST" finished-at="2020-06-14T09:16:15 IST">
+        <test-method status="PASS" signature="initializeURL()[pri:0, instance:jira.TestJira@6536e911]" name="initializeURL" is-config="true" duration-ms="2425" started-at="2020-06-14T15:36:01 IST" finished-at="2020-06-14T15:36:03 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeURL -->
-        <test-method status="PASS" signature="createIssue()[pri:1, instance:jira.TestJira@6fc6f14e]" name="createIssue" duration-ms="430" started-at="2020-06-14T09:16:15 IST" finished-at="2020-06-14T09:16:16 IST">
+        <test-method status="PASS" signature="createAndDeleteIssue()[pri:1, instance:jira.TestJira@6536e911]" name="createAndDeleteIssue" duration-ms="254" started-at="2020-06-14T15:36:03 IST" finished-at="2020-06-14T15:36:04 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createIssue -->
-        <test-method status="PASS" signature="deleteIssue()[pri:2, instance:jira.TestJira@6fc6f14e]" name="deleteIssue" duration-ms="40" started-at="2020-06-14T09:16:16 IST" finished-at="2020-06-14T09:16:16 IST">
+        </test-method> <!-- createAndDeleteIssue -->
+        <test-method status="PASS" signature="endToEndFlow()[pri:2, instance:jira.TestJira@6536e911]" name="endToEndFlow" duration-ms="819" started-at="2020-06-14T15:36:04 IST" finished-at="2020-06-14T15:36:04 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- deleteIssue -->
+        </test-method> <!-- endToEndFlow -->
       </class> <!-- jira.TestJira -->
     </test> <!-- Test -->
   </suite> <!-- Base -->

@@ -5,7 +5,8 @@
     <classes>
       <class name="jira.TestJira">
         <methods>
-          <include name="createIssue"/>
+          <include name="createAndDeleteIssue"/>
+          <include name="initializeURL"/>
         </methods>
       </class> <!-- jira.TestJira -->
     </classes>

@@ -3,29 +3,20 @@ package jira;
 import static io.restassured.RestAssured.given;
 
 import io.restassured.path.json.JsonPath;
+import payload.PayLoad;
 import utility.PathVariables;
 import utility.Util;
 
 public class CreateIssue implements PathVariables{
 
-	public static void createNewIssue(String session) {
+	public static void createNewIssue(String sessionid) {
 		String createissueresponse = given()
-		.header("cookie", "JSESSIONID="+session)
+		.header("cookie", sessionid)
 		.header("content-type", "application/json")
-		.body("{\r\n" + 
-				"	\"fields\":{\r\n" + 
-				"		\"project\":{\r\n" + 
-				"			\"key\": \"RES\"\r\n" + 
-				"		},\r\n" + 
-				"		\"summary\": \"Debit Card Defect\",\r\n" + 
-				"		\"issuetype\":{\r\n" + 
-				"			\"name\": \"Bug\"\r\n" + 
-				"		}\r\n" + 
-				"	}\r\n" + 
-				"}")
+		.body(PayLoad.createIssuePayload())
 		.when().post("/rest/api/2/issue").then().log().all().statusCode(201).extract().asString();
-		JsonPath jsonpath2 = new JsonPath(createissueresponse);
-		String issueid = jsonpath2.getString("id");
-		Util.writeFile(issueid, IssueID);
+		JsonPath jsonpath = new JsonPath(createissueresponse);
+		String issueid = jsonpath.getString("id");
+		Util.putData(excelPath, sheetname, 2, 1, issueid);
 	}
 }
