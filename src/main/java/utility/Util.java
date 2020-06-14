@@ -9,13 +9,12 @@ import java.io.IOException;
 
 public class Util {
 
-	public static String readFile() {
+	public static String readFile(String filepath) {
 		String st = null;
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("ID.txt")); 
-			while ((st = br.readLine()) != null) 
+			BufferedReader br = new BufferedReader(new FileReader(filepath)); 
+			while ((st = br.readLine()) != null)
 				return st;
-			br.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -26,10 +25,10 @@ public class Util {
 	
 	public static void writeFile(String data, String filepath) {
 		try {
-			FileWriter writer = new FileWriter(filepath);
+			FileWriter writer = new FileWriter(filepath);  
 			BufferedWriter buffer = new BufferedWriter(writer);  
-		    buffer.write(data);  
-		    buffer.close();
+			buffer.write(data);  
+			buffer.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}  

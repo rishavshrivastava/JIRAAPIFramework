@@ -2,16 +2,17 @@ package jira;
 
 import static io.restassured.RestAssured.given;
 
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import utility.PathVariables;
 import utility.Util;
 
-public class Base {
+public class Base implements PathVariables {
     
-	@BeforeSuite
-	public static void initializeURL() {
+	@BeforeTest
+	public void initializeURL() {
 		RestAssured.baseURI="http://localhost:8080";
 		
 		Response response = given().body("{ \"username\": \"rishav.beee\", \"password\": \"Pa$$w0rd1947\" }")
@@ -19,6 +20,6 @@ public class Base {
 		.header("content-type", "application/json")
 		.when().post("/rest/auth/1/session")
 		.then().log().all().statusCode(200).extract().response();
-		Util.writeFile(response.getSessionId(), "D:\\Eclipse Projects\\Automation\\JiraAPI\\ID.txt");
+		Util.writeFile(response.getSessionId(), SessionID);
 	}
 }

@@ -3,12 +3,14 @@ package jira;
 import static io.restassured.RestAssured.given;
 
 import io.restassured.path.json.JsonPath;
+import utility.PathVariables;
+import utility.Util;
 
-public class CreateIssue {
+public class CreateIssue implements PathVariables{
 
-	public static String createNewIssue(String session) {
+	public static void createNewIssue(String session) {
 		String createissueresponse = given()
-		.header("cookie", session)
+		.header("cookie", "JSESSIONID="+session)
 		.header("content-type", "application/json")
 		.body("{\r\n" + 
 				"	\"fields\":{\r\n" + 
@@ -24,6 +26,6 @@ public class CreateIssue {
 		.when().post("/rest/api/2/issue").then().log().all().statusCode(201).extract().asString();
 		JsonPath jsonpath2 = new JsonPath(createissueresponse);
 		String issueid = jsonpath2.getString("id");
-		return issueid;
+		Util.writeFile(issueid, IssueID);
 	}
 }

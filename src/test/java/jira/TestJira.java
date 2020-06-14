@@ -5,15 +5,15 @@ import org.testng.annotations.Test;
 import utility.Util;
 
 
-public class TestJira {
+public class TestJira extends Base {
 
 	@Test(priority=1)
 	public void createIssue() {
-		CreateIssue.createNewIssue(Util.readFile());
+		CreateIssue.createNewIssue(Util.readFile(SessionID));
 	}
 	
 	@Test(priority=2)
 	public void deleteIssue() {
-		System.out.println(Util.readFile());
+		DeleteIssue.deleteIssue(Util.readFile(SessionID), Util.readFile(IssueID));
 	}
 }
